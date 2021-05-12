@@ -1,5 +1,5 @@
 %% Pandoc Template for DIN5008 letter
-%% Version 1.0.0
+%% Version 1.0.1
 
 
 % Options for packages loaded elsewhere
@@ -165,7 +165,7 @@ $endif$
 $if(letteroption)$
 \LoadLetterOption{$letteroption$}
 $else$
-\LoadLetterOption{DIN5008A}
+\LoadLetterOption{DIN5008B}
 $endif$
 
 %%%
@@ -193,8 +193,8 @@ $if(yourref)$
 $else$
 \setkomavar{yourref}{-}
 $endif$
-$if(yourref)$
-\setkomavar{yourmail}{$yourref$}
+$if(yourmail)$
+\setkomavar{yourmail}{$yourmail$}
 $else$
 \setkomavar{yourmail}{-}
 $endif$
