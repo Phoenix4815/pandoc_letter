@@ -1,0 +1,262 @@
+%% Pandoc Template for DIN5008 letter
+%% Version 1.0.0
+
+
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode$for(hyperrefoptions)$,$hyperrefoptions$$endfor$}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+$if(colorlinks)$
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+$endif$
+%
+\documentclass[
+$if(fontsize)$
+  $fontsize$,
+$else$
+  fontsize=12pt,
+$endif$
+$for(classoption)$
+  $classoption$$sep$,
+$endfor$
+$if(fromphone)$
+fromphone,
+$endif$
+$if(fromfax)$
+fromfax,
+$endif$
+$if(fromemail)$
+fromemail,
+$endif$
+]{scrletter}
+
+\usepackage{amsmath,amssymb}
+$if(fontfamily)$
+\usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
+$else$
+\usepackage{lmodern}
+$endif$
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[$if(fontenc)$$fontenc$$else$T1$endif$]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+$if(mathspec)$
+  \ifXeTeX
+    \usepackage{mathspec}
+  \else
+    \usepackage{unicode-math}
+  \fi
+$else$
+  \usepackage{unicode-math}
+$endif$
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+$if(mainfont)$
+  \setmainfont[$for(mainfontoptions)$$mainfontoptions$$sep$,$endfor$]{$mainfont$}
+$endif$
+$if(sansfont)$
+  \setsansfont[$for(sansfontoptions)$$sansfontoptions$$sep$,$endfor$]{$sansfont$}
+$endif$
+$if(monofont)$
+  \setmonofont[$for(monofontoptions)$$monofontoptions$$sep$,$endfor$]{$monofont$}
+$endif$
+$for(fontfamilies)$
+  \newfontfamily{$fontfamilies.name$}[$for(fontfamilies.options)$$fontfamilies.options$$sep$,$endfor$]{$fontfamilies.font$}
+$endfor$
+$if(mathfont)$
+$if(mathspec)$
+  \ifXeTeX
+    \setmathfont(Digits,Latin,Greek)[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+  \else
+    \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+  \fi
+$else$
+  \setmathfont[$for(mathfontoptions)$$mathfontoptions$$sep$,$endfor$]{$mathfont$}
+$endif$
+$endif$
+\fi
+
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[$for(microtypeoptions)$$microtypeoptions$$sep$,$endfor$]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+$if(title-meta)$
+  pdftitle={$title-meta$},
+$endif$
+$if(author-meta)$
+  pdfauthor={$author-meta$},
+$endif$
+  pdflang={German},
+$if(subject)$
+  pdfsubject={$subject$},
+$endif$
+$if(keywords)$
+  pdfkeywords={$for(keywords)$$keywords$$sep$, $endfor$},
+$endif$
+$if(colorlinks)$
+  colorlinks=true,
+  linkcolor={$if(linkcolor)$$linkcolor$$else$Maroon$endif$},
+  filecolor={$if(filecolor)$$filecolor$$else$Maroon$endif$},
+  citecolor={$if(citecolor)$$citecolor$$else$Blue$endif$},
+  urlcolor={$if(urlcolor)$$urlcolor$$else$Blue$endif$},
+$else$
+  hidelinks,
+$endif$
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+
+\usepackage{calc} % for calculating minipage widths
+
+$if(graphics)$
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+$endif$
+
+\usepackage[normalem]{ulem}
+% Avoid problems with \sout in headers with hyperref
+\pdfstringdefDisableCommands{\renewcommand{\sout}{}}
+
+$if(pagestyle)$
+\pagestyle{$pagestyle$}
+$endif$
+$for(header-includes)$
+$header-includes$
+$endfor$
+
+\ifXeTeX
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage{german}
+  \setotherlanguage{english}
+\else
+  \usepackage[english,ngerman]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\fi
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+$if(csquotes)$
+\usepackage{csquotes}
+$endif$
+
+%%%
+
+$if(letteroption)$
+\LoadLetterOption{$letteroption$}
+$else$
+\LoadLetterOption{DIN5008A}
+$endif$
+
+%%%
+
+$if(backaddress)$
+% Underline backadrr
+\usepackage[normalem]{ulem}
+\makeatletter
+\let\old@backaddr@format\backaddr@format
+\renewcommand{\backaddr@format}[1]{\old@backaddr@format{\uline{#1}}}
+\makeatother
+\setkomavar{backaddress}{$for(backaddress)$$backaddress$$sep$, $endfor$}
+$else$
+\setkomavar{backaddress}{\vspace*{1em}}
+$endif$
+
+$if(specialmail)$
+\setkomavar{specialmail}{$for(specialmail)$$specialmail$$sep$\\$endfor$}
+$else$
+\setkomavar{specialmail}{\vspace*{3em}}
+$endif$
+
+$if(yourref)$
+\setkomavar{yourref}{$yourref$}
+$else$
+\setkomavar{yourref}{-}
+$endif$
+$if(yourref)$
+\setkomavar{yourmail}{$yourref$}
+$else$
+\setkomavar{yourmail}{-}
+$endif$
+$if(myref)$
+\setkomavar{myref}{$myref$}
+$else$
+\setkomavar{myref}{-}
+$endif$
+
+$if(fromname)$
+\setkomavar{fromname}{$fromname$}
+$endif$
+
+$if(fromaddress)$
+\setkomavar{fromaddress}{$for(fromaddress)$$fromaddress$$sep$\\$endfor$}
+$endif$
+
+$if(fromphone)$
+\setkomavar{fromphone}{$fromphone$}
+$endif$
+$if(fromfax)$
+\setkomavar{fromfax}{$fromfax$}
+$endif$
+$if(fromemail)$
+\setkomavar{fromemail}{$fromemail$}
+$endif$
+
+$if(date)$
+\setkomavar{date}{$date$}
+$else$
+\setkomavar{date}{\today}
+$endif$
+
+\begin{document}
+
+$for(include-before)$
+$include-before$
+
+$endfor$
+
+\begin{letter}{$for(address)$$address$$sep$\\$endfor$$if(subject)$\\ ~ \\$subject$$endif$}
+\opening{$opening$}
+
+$body$
+
+$if(closing)$
+\closing{$closing$}
+$endif$
+$if(encl)$
+\encl{$for(encl)$$encl$$sep$\\$endfor$}
+$endif$
+$if(cc)$
+\cc{$for(cc)$$cc$$sep$\\$endfor$}
+$endif$
+$if(ps)$
+\ps{$ps$}
+$endif$
+
+\end{letter}
+
+$for(include-after)$
+$include-after$
+
+$endfor$
+\end{document}
