@@ -1,15 +1,15 @@
-# Pandoc Template for DIN5008 type letters
+# Pandoc template for DIN5008 conforming letters
 
 ![Pull requests welcome!](https://img.shields.io/badge/-Pull%20requests%20welcome!-informational)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/Phoenix4815/pandoc_letter?sort=semver)
 [![License: AGPL v3](https://img.shields.io/badge/license-AGPL%20v3-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
 
-This repository provides a simple Pandoc LaTeX template for German DIN5008A and DIN5008B conform letters.
+This repository provides a simple Pandoc LaTeX template for German DIN5008A and DIN5008B conforming letters.
 Internally, this template is based on the default Pandoc LaTeX template as well as the `scrletter` KOMA class.
 
 ## Example
 
-Also see `examples/` folder.
+Also see the `examples/` folder.
 
 ```markdown
 ---
@@ -67,8 +67,8 @@ Place the `din5008.latex` there.
 
 ## Usage
 
-Create a markdown type letter.
-See the `examples/` folder for an example letter.
+Create a letter in markdown.
+See the `examples/` folder for a sample letter.
 Compile using
 
 ```bash
