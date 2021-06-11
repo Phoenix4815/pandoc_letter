@@ -55,7 +55,7 @@ Place the `din5008.latex` there.
 ### Linux
 
 ```bash
-git clone TODO /tmp/din5008/
+git clone https://github.com/Phoenix4815/pandoc_letter.git /tmp/din5008/
 mkdir -p "$HOME/.pandoc/templates/"
 cp /tmp/din5008/din5008.latex "$HOME/.pandoc/templates/"
 ```
