@@ -2,7 +2,7 @@
 
 ![Pull requests welcome!](https://img.shields.io/badge/-Pull%20requests%20welcome!-informational)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/Phoenix4815/pandoc_letter?sort=semver)
-[![License: GPL v3](https://img.shields.io/badge/license-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
+[![License: AGPL v3](https://img.shields.io/badge/license-AGPL%20v3-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
 
 This repository provides a simple Pandoc LaTeX template for German DIN5008A and DIN5008B conform letters.
 Internally, this template is based on the default Pandoc LaTeX template as well as the `scrletter` KOMA class.
