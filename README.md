@@ -112,7 +112,7 @@ For every attachment, the following keys are available:
 
 Example code:
 
-```markdown
+```yaml
 encl: [Formular 123, Schein A38]
 attachments-duplex: true
 attachments:
