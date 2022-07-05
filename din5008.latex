@@ -1,5 +1,5 @@
 %% Pandoc Template for DIN5008 letter
-%% Version 1.0.1
+%% Version 1.1.0
 
 
 % Options for packages loaded elsewhere
@@ -130,6 +130,24 @@ $if(graphics)$
 \makeatother
 $endif$
 
+$if(attachments)$
+% If pdf files to append (for the encl.) are given, load pdfpages
+\usepackage{pdfpages}
+
+$if(attachments-duplex)$
+\makeatletter
+\newcommand{\clearduplexpage}{%
+\clearpage
+{\pagestyle{empty}
+\ifodd\c@page
+\else
+      \hbox{}\newpage\if@twocolumn\hbox{}\newpage\fi
+\fi%
+}}
+\makeatother
+$endif$
+$endif$
+
 \usepackage[normalem]{ulem}
 % Avoid problems with \sout in headers with hyperref
 \pdfstringdefDisableCommands{\renewcommand{\sout}{}}
@@ -255,6 +273,13 @@ $endif$
 
 \end{letter}
 
+$for(attachments)$
+$if(attachments-duplex)$\clearduplexpage$endif$
+\includepdf[pages=-,$if(attachments.pages)$pages={$attachments.pages$},$endif$%
+$for(attachments.options)$$attachments.options$$sep$,$endfor$]{$attachments.name$}
+
+$endfor$
+%
 $for(include-after)$
 $include-after$
 
