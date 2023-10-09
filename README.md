@@ -121,3 +121,13 @@ attachments:
       pages: 1-2, 38
       options: [landscape=true]
 ```
+
+Please note that **filenames containing underscores are not handled correctly**, right now!
+To still include them, use the following workaround:
+```yaml
+attachments:
+    - name: |
+             ```{=latex}
+             filename_with_underscores.pdf
+             ```
+```
