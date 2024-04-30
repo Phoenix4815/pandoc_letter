@@ -122,8 +122,9 @@ attachments:
       options: [landscape=true]
 ```
 
-Please note that **filenames containing underscores are not handled correctly**, right now!
-To still include them, use the following workaround:
+~~Please note that **filenames containing underscores are not handled correctly**, right now!~~
+~~To still include them, use the following workaround:~~ *(Fixed in v1.1.1 :sparkles:)*
+<strike>
 ```yaml
 attachments:
     - name: |
@@ -131,3 +132,4 @@ attachments:
              filename_with_underscores.pdf
              ```
 ```
+</strike>

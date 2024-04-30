@@ -1,5 +1,5 @@
 %% Pandoc Template for DIN5008 letter
-%% Version 1.1.0
+%% Version 1.1.1
 
 
 % Options for packages loaded elsewhere
@@ -273,12 +273,19 @@ $endif$
 
 \end{letter}
 
+$if(attachments)$
+\let\oldunderscore\_
+\renewcommand{\_}{_}
+$endif$
 $for(attachments)$
 $if(attachments-duplex)$\clearduplexpage$endif$
 \includepdf[pages=-,$if(attachments.pages)$pages={$attachments.pages$},$endif$%
 $for(attachments.options)$$attachments.options$$sep$,$endfor$]{$attachments.name$}
 
 $endfor$
+$if(attachments)$
+\let\_\oldunderscore
+$endif$
 %
 $for(include-after)$
 $include-after$
