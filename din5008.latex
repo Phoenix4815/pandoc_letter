@@ -1,5 +1,5 @@
 %% Pandoc Template for DIN5008 letter
-%% Version 1.1.1
+%% Version 1.1.2
 
 
 % Options for packages loaded elsewhere
@@ -76,6 +76,10 @@ $else$
 $endif$
 $endif$
 \fi
+
+% Fix error if tight list is used (i.e. no blank line between item markers in markdown)
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
